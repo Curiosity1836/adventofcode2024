@@ -36,8 +36,19 @@ def getDistances (dataA, dataB)
   return total
 end
 
+def getSimilarityScore(dataA, dataB)
+  total = 0
+  for da in dataA 
+    for dbi in 0..dataB.length()
+      if dataB[dbi] == da
+        total += dataB[dbi]
+      end 
+    end
+  end
+  return total
+end
 
-input = File.read("data")
+input = File.read("data2")
 
 lines = input.split("\n")
 
@@ -53,3 +64,4 @@ puts "Done reading into arrays"
 puts "dA: " + dataA.length().to_s
 puts "dB: " + dataB.length().to_s
 puts "Distance: " + getDistances(dataA, dataB).to_s 
+puts "Similarity: " + getSimilarityScore(dataA, dataB).to_s
